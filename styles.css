@@ -47,7 +47,8 @@ table {
 }
 
 /*reset end*/
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
 
 
 
@@ -58,14 +59,17 @@ table {
     --lt-blue: rgba(122, 191, 191, .5);
     --orng: #EB5428;
     --small: 414px;
-    --bebas-txt:"Bebas Neue", sans-serif;
+    --bebas-txt:"Bebas Neue", "Times New Roman", sans-serif;
+    --Mont-txt: "Montserrat", "Times New Roman", sans-serif;
 }
 /*declared variables*/
-
+html{
+    background-color: var(--lt-blue);
+}
 body{
     width: var(--small);
     margin: 0 auto;
-    background-color: white;
+    background-color: var(--wtegry);
 }
 
 nav a{
@@ -86,9 +90,16 @@ nav span{
     display:grid;
     width: var(--small);
     margin: 0 auto;
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 50px 1px;
+    row-gap: 15px;
+    background-color: var(--wtegry);
+    text-transform: uppercase;
+}
+#topBar>div{
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
     background-color: white;
+
 }
 
 #topBar h2{
@@ -103,10 +114,13 @@ nav span{
 }
 
 #menu{
+    margin-top: 5px;
+    height: 70px;
     grid-column: 1/2;
     grid-row: 1/2;
     background-color: white;
-    /*shadow bottom*/
+    text-align: center;
+    box-shadow: 0 4px 2px -2px  rgba(0, 0, 0, 0.3);
 }
 
 #icon{
@@ -114,6 +128,7 @@ nav span{
     grid-row: 1/2;
     background-color: var(--orng);
     justify-content: center;
+    box-shadow: 0 4px 2px -2px  rgba(0, 0, 0, 0.3);
 }
 
 #icon span{
@@ -125,21 +140,30 @@ nav span{
 #userIcon{
     grid-column: 3/4;
     grid-row: 1/2;
-    /*shadow bottom*/
+    box-shadow: 0 4px 2px -2px  rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin-top: 10px;
+    
+    font-size: large;
 }
 
-#searchBar{
-    grid-row: 2;
-    grid-column: 1/4;
+#userIcon svg{
+    margin-bottom: -10px;
+}
+
+#search{
     background-color: var(--wtegry);
+    justify-content: center;
+    text-align: center;
 }
 
-#topBar ul a{
+#topBar li a{
     display: flex;
     flex-direction: column;
     align-items: center;
     color: var(--orng);
     border: 1px solid var(--blk);
+    border-top: 0;
 }
 
 #topBar ul a img{
@@ -160,10 +184,10 @@ nav span{
 }
 
 #topBar ul{
-    max-height:0;
-    margin-top: -80px;
+    max-height: 0;
     overflow: hidden;
     transition: 1s ease-in-out;
+    z-index: 1;
 }
 
 input:checked~#dropDown{
@@ -194,8 +218,9 @@ button{
     border: none;
 }
 
-#siteSearch{
+#Search{
     border: 1px solid var(--orng);
+    background-color: var(--wtegry);
 }
 
 
@@ -209,16 +234,41 @@ button{
     background-color: var(--wtegry);
 }
 
-#searchBar svg{
+#search svg{
     background-color: var(--orng);
 }
 
+
+
+#search input{
+    width: 200px;
+    height: 45px;
+    margin-right: 50px;
+    margin-top: -5px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+}
+#search div{
+    margin-top: -52px;
+    margin-left: 200px;;
+}
+
+::placeholder{
+    color: rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    font-family: Verdana;
+}
+
 h1{
-    font-family: "Bebas Neue";
+    font-family: var(--bebas-txt);
     font-weight: 400;
     font-size: 40px;
     text-align: center;
-    margin-top: 200px;
+    margin-top: 158px;
+    margin-bottom: 20px;
+    background-color: var(--wtegry);
+    text-transform: uppercase;
 }
 
 main>img{
@@ -228,77 +278,635 @@ main>img{
 
 
 
-h1+nav{
-    display: flex;
-    flex-direction: row;
+h1+menu ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    
+    text-transform: uppercase;
 }
 
-h1+nav a{
+#options a{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
+    color: var(--orng);
 }
 
 
+
+p{
+    font-family: var(--Mont-txt);
+    font-weight: 400;
+    font-size: 16px;
+}
+
+p.description{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.1rem;
+}
 
 
 h2{
     font-family: var(--bebas-txt);
     font-weight: 400;
     font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+}
+/*
+#details dl{
+    display: grid;
+    grid-template-columns: fit-content(100ch) fit-content(100ch);
+    text-align: right;
+    justify-content: center;
+    gap: 10px
+}
+
+#details dd {
+  text-align: left;
+  background-color: #7ABFBF;
+  width: fit-content(100ch);
+}
+*/
+
+#details dl{
+    text-align: left;
+    margin-left:10px;
+}
+#details dd{
+    font-family: var(--Mont-txt);
+    font-weight: 400;
+    font-size: 16px;
+}
+
+#details dt{
+    font-family: var(--Mont-txt);
+    font-weight: 700;
+    font-size: 16px;
+}
+#details dd{
+    
+    margin-left: 10px;
+}
+#details dd,#details dt{
+    display: inline;
+    text-align: center;
+}
+
+#details dd::after{
+    display: block;
+    content: "\A";
+}
+h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#supplies li{
+    list-style: square;
+    list-style-position: inside ;
+    margin-left: 20px;
+}
+
+#directions ol{
+    list-style: decimal;
+    margin-left: 20px;
+}
+
+#directions li{
+    margin-bottom: 10px;
+}
+
+aside{
+    display:grid;
+    grid-template-rows: repeat(4,auto);
+    background-color: var(--blue);
+    row-gap: 30px ;
 }
 
 h3{
     font-family: var(--bebas-txt);
     font-weight: 400;
     font-size: 25px;
+    text-transform: uppercase;
 }
 
-p{
-    font-family: "montserrat";
-    font-weight: 400;
-    font-size: 16px;
+
+aside h2{
+    height: 20px;
 }
 
-dd{
-    font-family: "montserrat";
-    font-weight: 400;
-    font-size: 16px;
+aside section{
+    display: grid;
+    text-align: left;
+    grid-template-rows: 50px, 1fr;
+    grid-template:
+        "img dish"
+        "img describe"
+        "img rate";
 }
 
-dt{
-    font-family: "montserrat";
-    font-weight: 700;
-    font-size: 16px;
+aside img{
+    grid-area: img;
+    width: 100px;
+    margin-left: 10px;
 }
+
+aside dt{
+    font-weight: bold;
+    grid-area: rate;
+    width: 270px;
+    margin-bottom: 5px;
+}
+
+aside section:last-of-type{ 
+    margin-bottom: 10px;
+}
+
+aside p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 
 
 footer{
     display: grid;
+    grid-template-rows: 80px 1fr;
+    text-transform: uppercase;
+    font-family: var(--bebas-txt);
+    font-size: 18px;
 }
-footer h2 footer h3{
+
+
+footer h2, footer h3{
     font-size: 0;
     padding: 0;
     margin: 0;
 }
 
-footer #social{
-    display: flex;
-    flex-direction: row;
+footer ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
 }
 
-footer #social a{
+footer a{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--orng);
+}
+
+#goodEats{
+    display: grid;
+    width: var(--small);
+    grid-template-rows: 200px 1fr 1fr;
+    grid-template-columns: var(--small);
+    align-items: center;
+    justify-content: center;
+}
+
+#goodEats img{
+    grid-row: 1;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+footer small{
+    text-align: center;
 }
 
 
-@media(min-width:768px ){
+@media(min-width:768px) and (max-width:1280px){
+    :root{
+        --med: 768px;
+    }
+    
+    body{
+        width: var(--med);
+    }
+
+    #topBar{
+        z-index: 2;
+        width: var(--med);
+        margin: 0 auto;
+        grid-template-rows: 1fr;
+        row-gap: 15px;
+        background-color: var(--wtegry);
+        box-shadow: 0 16px 2px -2px rgba(0, 0, 0, 0.3);
+        height:200px
+    }
+
+    #icon{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        box-shadow: none;
+        width: 80px;
+    }
+
+    #menu{
+        display: none;
+    }
+
+    #userIcon{
+        grid-column: 3/4;
+        grid-row: 1/2;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #userIcon svg{
+        margin-left: 70px;
+    }
+    
+    .signIn span{
+        visibility: hidden;
+    }
+
+    .signIn{
+        margin-top: 10px;
+        margin-left: 45px;
+    }
+
+    #search{
+        float: left;
+        margin-top: -215px;
+        background: none;
+        grid-row: 2/3;
+        margin-left: 210px;
+    }
+
+    #dropDown{
+        margin-top: 20px;
+        float: left;
+        background: none;
+        grid-row: 3/4;
+        display: flex;
+        flex-direction:row;
+        width: var(--med);
+        justify-content: space-around;
+        background: white;
+    }
+
+    #topBar img{
+        max-height:1000px;
+    }
+
+    #topBar li a{
+        height:120px;
+        background-color: white;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        font-size: large;
+    }
+    
+    #topBar ul{
+        max-height: 120px;
+        overflow: hidden;
+        transition: 1s ease-in-out;
+        z-index: 1;
+        background-color: white;
+    }
+
+    h1{
+        margin-top: 205px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: left;
+        margin-bottom: -10px;
+    }
+
+    #options{
+        position:absolute;
+        background-color: rgba(242,242,242, .5);
+        z-index: 1;
+        width: var(--med);
+        margin-top: 10px;
+    }
+
+    main>img{
+        margin-top: 10px;
+        width:var(--med);
+    }
+
+
+    #details dl{
+        text-align: center;
+        margin-left:0;
+    }
+
+    main div.medium{
+        margin-top: 15px;
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        line-height: 1.4rem;
+    }
+
+    main div.medium #supplies{
+        line-height: 1.7rem;
+    }
+
+    main div.medium #directions li{
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
+
+
+    aside{
+        grid-template-rows: repeat(3,auto);
+        grid-template-columns: repeat(2,auto);
+        padding-bottom: 10px;
+    }
+
+    aside h2{
+        grid-area: 1/1/1/span 2;
+    }
+
+    aside img{
+        margin-right: 10px;
+    }
+
+    aside section:last-of-type{ 
+    margin-bottom: 0;
+    }
+
+
+
+    footer{
+        display: grid;
+        padding-top: 20px;
+        grid-template-columns: 325px 1fr;
+        background-color: white;
+        height: 250px;
+    }
+
+    footer #goodEats{
+        grid-area: 1;
+    }
+
 
 }
-
-
 
 @media (min-width: 1280px){
+
+    :root{
+        --lrg: 1280px;
+    }
+    
+    body{
+        width: var(--lrg);
+    }
+
+    #topBar{
+        z-index: 2;
+        width: var(--lrg);
+    }
+
+    
+    #topBar>div{
+        box-shadow: 0 5px 2px -2px rgba(0, 0, 0, 0.3);
+    }
+
+    #search{
+        box-shadow: none;
+    }
+
+    #icon{
+        grid-column: 1/2;
+        grid-row: 1/2;
+        box-shadow: none;
+        width: 80px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        margin-bottom: 0;
+    }
+
+    #menu{
+        display: none;
+    }
+
+    #dropDown{
+        margin-top: -100px;
+        float: left;
+        background: none;
+        grid-row: 3/4;
+        display: grid;
+        grid-template-columns: repeat(7, 70px);
+        width: var(--med);
+        justify-content: space-around;
+    }
+
+    #userIcon{
+        grid-column: 3/4;
+        grid-row: 1/2;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #userIcon svg{
+        margin-left: 170px;
+        margin-top: 15px;
+    }
+    
+    .signIn span{
+        visibility: hidden;
+    }
+
+    .signIn{
+        margin-top: 15px;
+        margin-left: 145px;
+    }
+
+    #topBar #dropDown img{
+        max-height:1000px;
+        width: 60px;
+    }
+
+    #topBar li a{
+        height:100px;
+        width: 50px;
+        background-color: white;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        font-size: large;
+        margin: 0%;
+        padding: 0%;
+    }
+    
+    #topBar ul{
+        margin-left: 180px;
+        max-height: 120px;
+        width: 900px;
+        overflow: hidden;
+        transition: 1s ease-in-out;
+        z-index: 1;
+        background-color: white;
+    }
+
+
+
+    h1{
+        margin-top: 170px;
+        padding-top: 50px;
+    }
+
+    #options ul{
+        width:100px;
+        display: inline-block;
+        border: 1px solid var(--orng);
+        background-color: white;
+    }
+
+    #options li{
+        padding: 40px;
+    }
+
+    #options li:last-of-type{
+        padding-bottom: 61px;
+    }
+
+
+    main .lrg{
+        display: grid;
+        grid-template-rows: 100px 500px;
+        grid-template-columns: 400px 650px;
+        margin-left: 103px;
+        margin-top: -599px;
+        margin-bottom: -10px;
+    }
+    main img{
+        width: 400px;
+    }
+    main.lrg img{
+    grid-area: 1/1/span2/1;
+    }   
+    
+    main .lrg p{
+        grid-column: 2;
+        padding-left: 10px;
+        line-height: 1.9rem;
+    }   
+
+    #details{
+        background-color: var(--blk);
+        color: var(--blue);
+    }
+
+    #details h2{
+        padding-top: 5px;
+    }
+
+    #details dl{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: auto
+    }
+
+    #details dt{
+        grid-row: 1;
+        padding-top: 10px;
+    }
+
+    main div.medium{
+        margin-top: 15px;
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        line-height: 1.4rem;
+    }
+
+    main div.medium #supplies{
+        line-height: 1.7rem;
+    }
+
+    main div.medium #directions li{
+        margin-bottom: 20px;
+        margin-right: 10px;
+    }
+
+
+
+    aside{
+        grid-template-rows: auto auto;
+        grid-template-columns: repeat(4,auto);
+        padding-bottom: 10px;
+    }
+
+    aside h2{
+        grid-area: 1/1/1/span 4;
+    }
+
+    aside section{
+        display: grid;
+        grid-template-rows: repeat(4,auto);;
+    }
+
+    aside section img{
+        grid-row: 1;
+        width: 250px;;
+    }
+
+    aside section h3{
+        grid-row: 2;
+    }
+
+    aside section p{
+        grid-row: 3;
+    }
+
+    aside section dl{
+        grid-row: 4;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    aside section dt{
+        width:50px
+    }
+    aside section dd{
+        margin-left: 0;
+        padding: 0;
+    }
+
+
+    
+
+
+
+    footer{
+        display: grid;
+        padding-top: 20px;
+        grid-template-columns: 700px 1fr;
+        background-color: white;
+        height: 250px;
+    }
+
+    footer #goodEats{
+        grid-area: 1;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+    }
+
+    footer #goodEats img{
+        grid-area: 1/1/span 2/1;
+    }
+
+    footer #goodEats small{
+        grid-column: 2;
+        margin-top:-220px
+    }
+
+    footer #goodEats small:last-of-type{
+        margin-top:-270px
+    }
 
 }
