@@ -114,7 +114,7 @@ nav span{
     color: #000;
 }
 
-#burgMenu{
+#menu{
     margin-top: 5px;
     height: 70px;
     grid-column: 1/2;
@@ -144,12 +144,16 @@ nav span{
     box-shadow: 0 4px 2px -2px  rgba(0, 0, 0, 0.3);
     text-align: center;
     margin-top: 10px;
-    
-    font-size: large;
 }
 
 #userIcon svg{
     margin-bottom: -10px;
+    width: 80px;
+}
+
+#userIcon span{
+    font-size: small;
+    width:50px
 }
 
 #search{
@@ -510,7 +514,7 @@ footer small{
         width: 80px;
     }
 
-    #burgMenu{
+    #Menu, label, #topBar>div>h2{
         display: none;
     }
 
@@ -523,11 +527,18 @@ footer small{
     }
 
     #userIcon svg{
-        margin-left: 70px;
+        margin-left: 66px;
     }
+
+    #userIcon span{
+        margin-left: 80px;
+    }
+    
+
     
     .signIn span{
         visibility: hidden;
+        display: none;
     }
 
     .signIn{
@@ -537,7 +548,7 @@ footer small{
 
     #search{
         float: left;
-        margin-top: -215px;
+        margin-top: -200px;
         background: none;
         grid-row: 2/3;
         margin-left: 210px;
@@ -545,6 +556,7 @@ footer small{
 
     #dropDown{
         margin-top: 20px;
+        padding-bottom: 7px;
         float: left;
         background: none;
         grid-row: 3/4;
@@ -689,7 +701,7 @@ footer small{
         margin-bottom: 0;
     }
 
-    #burgMenu{
+    #Menu, label, #topBar>div>h2{
         display: none;
     }
 
@@ -713,12 +725,17 @@ footer small{
     }
 
     #userIcon svg{
-        margin-left: 170px;
+        margin-left: 160px;
         margin-top: 15px;
+    }
+
+    #userIcon span{
+        margin-left: 175px;
     }
     
     .signIn span{
         visibility: hidden;
+        display: none;
     }
 
     .signIn{
@@ -772,7 +789,7 @@ footer small{
     }
 
     #options li:last-of-type{
-        padding-bottom: 61px;
+        padding-bottom: 80px;
     }
 
 
@@ -781,7 +798,7 @@ footer small{
         grid-template-rows: 100px 500px;
         grid-template-columns: 400px 650px;
         margin-left: 103px;
-        margin-top: -599px;
+        margin-top: -618px;
         margin-bottom: -10px;
     }
     main img{
@@ -800,6 +817,7 @@ footer small{
     #details{
         background-color: var(--blk);
         color: var(--blue);
+        margin-top: 30px;
     }
 
     #details h2{
