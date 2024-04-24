@@ -64,13 +64,20 @@ table {
     --Mont-txt: "Montserrat", "Times New Roman", sans-serif;
 }
 /*declared variables*/
+*{
+    
+    transition: all 2s ease;
+}
+
 html{
     background-color: var(--lt-blue);
+    transition: all 2s ease;
 }
 body{
     width: var(--small);
     margin: 0 auto;
     background-color: var(--wtegry);
+    transition: all 2s ease;
 }
 
 nav a{
@@ -124,6 +131,12 @@ nav span{
     box-shadow: 0 4px 2px -2px  rgba(0, 0, 0, 0.3);
 }
 
+#menu:hover{
+    background-color: rgb(228, 178, 160);
+    transition: all 1s ease-in;
+    cursor:pointer;
+}
+
 #icon{
     grid-column: 2/3;
     grid-row: 1/2;
@@ -144,6 +157,17 @@ nav span{
     box-shadow: 0 4px 2px -2px  rgba(0, 0, 0, 0.3);
     text-align: center;
     margin-top: 10px;
+}
+
+
+#userIcon:hover{
+    background-color: rgb(228, 178, 160);
+    transition: all 1s ease-in;
+}
+
+#userIcon:focus{
+    background-color: rgb(241, 140, 103);
+    transition: none;
 }
 
 #userIcon svg{
@@ -188,6 +212,17 @@ nav span{
     justify-content: center;
 }
 
+#topBar li a:hover{
+    background-color: rgb(228, 178, 160);
+    transition: all 1s ease-in;
+}
+
+#topBar li a:focus{
+    background-color: rgb(241, 140, 103);
+    transition: none;
+}
+
+
 #topBar ul{
     max-height: 0;
     overflow: hidden;
@@ -226,6 +261,7 @@ button{
 #Search{
     border: 1px solid var(--orng);
     background-color: var(--wtegry);
+    animation: all 2s ease;
 }
 
 
@@ -241,6 +277,16 @@ button{
 
 #search svg{
     background-color: var(--orng);
+}
+
+#search:hover{
+    background-color: rgb(228, 178, 160);
+    transition: all 1s ease-in;
+}
+
+#search:focus{
+    background-color: rgb(241, 140, 103);
+    transition: none;
 }
 
 
@@ -274,10 +320,14 @@ h1{
     margin-bottom: 20px;
     background-color: var(--wtegry);
     text-transform: uppercase;
+    
+    transition: all 2s ease;
 }
 
 main div>img{
     width: var(--small);
+    
+    transition: all 2s ease;
 }
 
 
@@ -299,6 +349,15 @@ h1+menu{
 }
 
 
+#options a:hover{
+    background-color: rgb(228, 178, 160);
+    transition: all 1s ease-in;
+}
+
+#options a:focus{
+    background-color: rgb(241, 140, 103);
+    transition: none;
+}
 
 p{
     font-family: var(--Mont-txt);
@@ -450,6 +509,7 @@ footer h2, footer h3{
     font-size: 0;
     padding: 0;
     margin: 0;
+    display: none;
 }
 
 footer ul{
@@ -524,14 +584,12 @@ footer small{
         box-shadow: none;
         display: flex;
         flex-direction: column;
-    }
-
-    #userIcon svg{
+        width:80px;
         margin-left: 66px;
     }
 
     #userIcon span{
-        margin-left: 80px;
+        margin-left: 16px;
     }
     
 
@@ -689,6 +747,7 @@ footer small{
 
     #search{
         box-shadow: none;
+        padding-top: 8px;
     }
 
     #icon{
@@ -717,20 +776,21 @@ footer small{
     }
 
     #userIcon{
+        margin-left: 160px;
         grid-column: 3/4;
         grid-row: 1/2;
         box-shadow: none;
         display: flex;
         flex-direction: column;
+        width: 80px;
     }
 
     #userIcon svg{
-        margin-left: 160px;
         margin-top: 15px;
     }
 
     #userIcon span{
-        margin-left: 175px;
+        margin-left: 15px;
     }
     
     .signIn span{
@@ -929,3 +989,99 @@ footer small{
     }
 
 }
+
+@media print {
+    nav, img{
+        display: none !important;
+    }
+
+    body{
+        background-color: white;
+        font-family: serif, sans-serif !important;
+    }
+
+    html{
+        background-color: white;
+    }
+
+    body{
+        columns: 2;
+        margin: 0%;
+    }
+
+    h1{
+        font-size: larger;
+    }
+    
+    h2, h3{
+        font-size: large;
+    }
+
+    aside{
+        grid-template-rows: 30px 1fr 1fr 1fr 1;
+    }
+    aside h2{
+        font-size: large;
+        font-weight: 600;
+    }
+    aside h3{
+        font-size: medium;
+        font-weight: 600;
+    }
+
+    aside section{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+
+    @page{
+        margin: 0.5inch !important;
+    }
+
+    h1{
+        margin-top: 0;
+    }
+
+    small{
+        font-size: smaller;
+        margin: 0;
+    }
+
+    footer{
+        display: grid !important;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    footer #goodEats{
+        margin-top: -180px;
+    }
+    
+    footer #social li a{
+        margin: 0;
+        display: none;
+    }
+    footer #social ul{
+        display: flex !important;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    footer #facebook::after{
+        content: "facebook.com" !important;
+        margin: auto;
+    }
+    footer #instagram::after{
+        content: "instagram.com" !important;
+    }
+    footer #youtube::after{
+        content: "YouTube.com" !important;
+    }
+    footer #tiktok::after{
+        content: "TikTok.com" !important;
+    }
+}
+
