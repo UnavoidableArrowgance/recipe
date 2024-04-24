@@ -283,11 +283,11 @@ main div>img{
 
 
 
-h1+menu ul{
+h1+menu{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr ;
-    
     text-transform: uppercase;
+    list-style: none;
 }
 
 #options a{
@@ -777,7 +777,7 @@ footer small{
         padding-top: 50px;
     }
 
-    #options ul{
+    #options{
         width:100px;
         display: inline-block;
         border: 1px solid var(--orng);
